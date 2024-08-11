@@ -11,7 +11,7 @@ const App = () => {
     useEffect(() => {
         const fetchFlashcards = async () => {
             try {
-                const response = await fetch('http://localhost:5050/flashcards');
+                const response = await fetch('https://tuf-flashcards-backend.onrender.com/flashcards');
                 const data = await response.json();
                 setFlashcards(data);
             } catch (error) {
