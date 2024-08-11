@@ -10,7 +10,7 @@ const CreateFlashcard = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5050/flashcards', { question, answer });
+            const response = await axios.post('https://tuf-flashcards-backend.onrender.com/flashcards', { question, answer });
             // You might want to update your state here or notify the user about successful creation
             setQuestion('');
             setAnswer('');
