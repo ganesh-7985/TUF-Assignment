@@ -9,7 +9,7 @@ const Modal = ({ isOpen, setIsOpen, onAddFlashcard }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5050/flashcards', { question, answer });
+      const response = await axios.post('https://tuf-flashcards-backend.onrender.com/flashcards', { question, answer });
       onAddFlashcard(response.data);
       setQuestion('');
       setAnswer('');
