@@ -10,7 +10,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchFlashcards = async () => {
             try {
-                const response = await axios.get('http://localhost:5050/flashcards');
+                const response = await axios.get('https://tuf-flashcards-backend.onrender.com/flashcards');
                 setFlashcards(response.data);
             } catch (error) {
                 console.error('Error fetching flashcards:', error);
@@ -22,7 +22,7 @@ const Dashboard = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5050/flashcards/${id}`);
+            await axios.delete(`https://tuf-flashcards-backend.onrender.com/flashcards/${id}`);
             setFlashcards(flashcards.filter((flashcard) => flashcard.id !== id));
         } catch (error) {
             console.error('Error deleting flashcard:', error);
@@ -32,7 +32,7 @@ const Dashboard = () => {
     const handleEdit = async (id) => {
         const updatedFlashcard = { question: editQuestion, answer: editAnswer };
         try {
-            await axios.put(`http://localhost:5050/flashcards/${id}`, updatedFlashcard);
+            await axios.put(`https://tuf-flashcards-backend.onrender.com/flashcards/${id}`, updatedFlashcard);
             setFlashcards(flashcards.map(flashcard =>
                 flashcard.id === id ? { ...flashcard, ...updatedFlashcard } : flashcard
             ));
